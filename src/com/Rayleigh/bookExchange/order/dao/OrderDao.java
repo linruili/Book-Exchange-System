@@ -2,11 +2,12 @@ package com.Rayleigh.bookExchange.order.dao;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.Rayleigh.bookExchange.order.domain.Order;
-import com.Rayleigh.bookExchange.user.domain.User;
 
 import cn.itcast.jdbc.TxQueryRunner;
 
@@ -42,6 +43,21 @@ public class OrderDao
 			e.printStackTrace();
 		}
 		
+		
+	}
+
+	public List<Order> loadOrderByUid(String uid)
+	{
+		String sql = "select * from orders where uid=?";
+		try
+		{
+			List<Order> orderList = qr.query(sql, new BeanListHandler<Order>(Order.class), uid);
+			return orderList;
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return null;
 		
 	}
 

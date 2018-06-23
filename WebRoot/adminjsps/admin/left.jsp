@@ -17,12 +17,12 @@
 	<script type="text/javascript" src="<c:url value='/menu/mymenu.js'/>"></script>
 	<link rel="stylesheet" href="<c:url value='/menu/mymenu.css'/>" type="text/css" media="all">
 <script language="javascript">
-var bar1 = new Q6MenuBar("bar1", "ITCAST网络图书商城");
+var bar1 = new Q6MenuBar("bar1", "图书置换系统");
 function load() {
 	bar1.colorStyle = 2;
 	bar1.config.imgDir = "<c:url value='/menu/img/'/>";
 	bar1.config.radioButton=false;
-	bar1.add("分类管理", "查看分类", "<c:url value='/adminjsps/admin/category/list.jsp'/>", "body");
+	bar1.add("分类管理", "查看分类", "<c:url value='/admin/AdminCategoryServlet?method=findAll'/>", "body");
 	bar1.add("分类管理", "添加分类", "<c:url value='/adminjsps/admin/category/add.jsp'/>", "body");
 
 	bar1.add("图书管理", "查看图书", "<c:url value='/adminjsps/admin/book/list.jsp'/>", "body");

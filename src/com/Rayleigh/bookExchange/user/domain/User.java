@@ -5,7 +5,7 @@ public class User
 	private String uid;
 	private String username;
 	private String password;
-	private int money;
+	private int money;//0:未缴纳保证金   1:已缴纳保证金
 	
 	public String getUid()
 	{

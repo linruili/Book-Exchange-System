@@ -41,8 +41,16 @@
 		</c:when>
 		<c:otherwise>
 			您好：${sessionScope.session_user.username }&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="<c:url value='/jsps/cart/list.jsp'/>" target="body">我的购物车</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="<c:url value='/jsps/order/list.jsp'/>" target="body">我的订单</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			<c:choose>
+				<c:when test="${sessionScope.session_user.money==0}">
+				<a href="<c:url value='/jsps/order/bank.jsp'/>" target="_parent">请缴纳保证金</a>
+				</c:when>
+				<c:otherwise>
+				已缴纳保证金
+				</c:otherwise>
+			</c:choose>
+			&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="<c:url value='/OrderServlet?method=showOrders'/>" target="body">我的置换单</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 			<a href="<c:url value='/UserServlet?method=quit'/>" target="_parent">退出</a>
 		</c:otherwise>
 	</c:choose>

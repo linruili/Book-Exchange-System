@@ -28,7 +28,8 @@ public class OrderServlet extends BaseServlet
 	public String confirm(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException
 	{
-		return "jsps/book/list.jsp";
+		request.setAttribute("msg", "申请成功，请到于1周内携带实体书至实体店进行置换");
+		return "f:/jsps/msgBody.jsp";
 	}
 	
 	public String cancel(HttpServletRequest request, HttpServletResponse response) 
@@ -36,7 +37,7 @@ public class OrderServlet extends BaseServlet
 	{
 		String oid = request.getParameter("oid");
 		orderService.deleteByOid(oid);
-		return "jsps/book/list.jsp";
+		return "f:/jsps/book/list.jsp";
 	}
 	
 	public String createOrder(HttpServletRequest request, HttpServletResponse response) 
@@ -50,7 +51,7 @@ public class OrderServlet extends BaseServlet
 		if(user == null)
 		{
 			request.setAttribute("msg", "请先登录");
-			return "jsps/book/list.jsp";
+			return "f:/jsps/msgBody.jsp";
 		}
 		order.setOwner(user);
 		String bid = request.getParameter("bid");
@@ -62,6 +63,19 @@ public class OrderServlet extends BaseServlet
 		orderService.add(order);
 		request.setAttribute("order", order);
 		request.setAttribute("book", book);
+		return "jsps/order/desc.jsp";
+	}
+	
+	public String showOrders(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException
+	{
+		User user = (User)request.getSession().getAttribute("session_user");
+		if(user == null)
+		{
+			request.setAttribute("msg", "请先登录");
+			return "f:/jsps/msgBody.jsp";
+		}
+		request.setAttribute("orderItemList", orderService.showOrders(user.getUid()));
 		return "jsps/order/list.jsp";
 	}
 	
