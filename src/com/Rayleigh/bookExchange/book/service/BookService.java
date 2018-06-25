@@ -24,4 +24,19 @@ public class BookService
 		return bookDao.findByBid(bid);
 	}
 
+	public void add(Book book)
+	{
+		bookDao.add(book);
+	}
+	
+	public void delete(String bid)
+	{
+		bookDao.delete(bid);
+	}
+
+	public void edit(Book book)
+	{
+		bookDao.edit(book);
+	}
+
 }

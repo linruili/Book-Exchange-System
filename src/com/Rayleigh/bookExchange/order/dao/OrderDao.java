@@ -58,7 +58,32 @@ public class OrderDao
 			e.printStackTrace();
 		}
 		return null;
-		
+	}
+	
+	public List<Order> findAll()
+	{
+		String sql = "select * from orders";
+		try
+		{
+			List<Order> orderList = qr.query(sql, new BeanListHandler<Order>(Order.class));
+			return orderList;
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public void updataStateByOid(String oid)
+	{
+		String sql = "update orders set state=1 where oid=?";
+		try
+		{
+			qr.update(sql, oid);
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 }

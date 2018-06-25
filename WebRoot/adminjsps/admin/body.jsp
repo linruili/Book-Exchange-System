@@ -3,6 +3,8 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+
+
   <head>
     <title>My JSP 'body.jsp' starting page</title>
     
@@ -15,9 +17,13 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 
+	<style type="text/css">
+		body {background: rgb(254,238,189);}
+	</style>
+	
   </head>
   
   <body style="margin: 0px;">
-    <img src="<c:url value='/images/welcome.jpg'/>" width="100%" height="100%"/>
+    
   </body>
 </html>

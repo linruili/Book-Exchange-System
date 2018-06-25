@@ -9,7 +9,26 @@ public class OrderItem
 	private String bname;
 	private String author;
 	private String stateDes;
+	private int state;
 	private String image;
+	private String username;
+	public int getState()
+	{
+		return state;
+	}
+	public void setState(int state)
+	{
+		this.state = state;
+	}
+	
+	public String getUsername()
+	{
+		return username;
+	}
+	public void setUsername(String username)
+	{
+		this.username = username;
+	}
 	public String getImage()
 	{
 		return image;

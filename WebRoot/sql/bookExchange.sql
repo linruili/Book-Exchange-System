@@ -30,18 +30,19 @@ CREATE TABLE book (
   author VARCHAR(20),/*作者*/
   image VARCHAR(200),/*图片*/
   cid CHAR(32),/*所属分类*/
+  del boolean,
   FOREIGN KEY (cid) REFERENCES category(cid)/*建立主外键关系*/
 );
 
-INSERT  INTO book VALUES ('1','Java编程思想（第4版）','qdmmy6','book_img/9317290-1_l.jpg','1');
-INSERT  INTO book VALUES ('2','Java核心技术卷1','qdmmy6','book_img/20285763-1_l.jpg','1');
-INSERT  INTO book VALUES ('3','Java就业培训教程','张孝祥','book_img/8758723-1_l.jpg','1');
-INSERT  INTO book VALUES ('4','Head First java','（美）塞若','book_img/9265169-1_l.jpg','1');
-INSERT  INTO book VALUES ('5','JavaWeb开发详解','孙鑫','book_img/22788412-1_l.jpg','2');
-INSERT  INTO book VALUES ('6','Struts2深入详解','孙鑫','book_img/20385925-1_l.jpg','2');
-INSERT  INTO book VALUES ('7','精通Hibernate','孙卫琴','book_img/8991366-1_l.jpg','2');
-INSERT  INTO book VALUES ('8','精通Spring2.x','陈华雄','book_img/20029394-1_l.jpg','2');
-INSERT  INTO book VALUES ('9','Javascript权威指南','（美）弗兰纳根','book_img/22722790-1_l.jpg','3');
+INSERT  INTO book VALUES ('1','Java编程思想（第4版）','qdmmy6','book_img/9317290-1_l.jpg','1',false);
+INSERT  INTO book VALUES ('2','Java核心技术卷1','qdmmy6','book_img/20285763-1_l.jpg','1',false);
+INSERT  INTO book VALUES ('3','Java就业培训教程','张孝祥','book_img/8758723-1_l.jpg','1',false);
+INSERT  INTO book VALUES ('4','Head First java','（美）塞若','book_img/9265169-1_l.jpg','1',false);
+INSERT  INTO book VALUES ('5','JavaWeb开发详解','孙鑫','book_img/22788412-1_l.jpg','2',false);
+INSERT  INTO book VALUES ('6','Struts2深入详解','孙鑫','book_img/20385925-1_l.jpg','2',false);
+INSERT  INTO book VALUES ('7','精通Hibernate','孙卫琴','book_img/8991366-1_l.jpg','2',false);
+INSERT  INTO book VALUES ('8','精通Spring2.x','陈华雄','book_img/20029394-1_l.jpg','2',false);
+INSERT  INTO book VALUES ('9','Javascript权威指南','（美）弗兰纳根','book_img/22722790-1_l.jpg','3',false);
 
 SELECT * FROM book;
 
